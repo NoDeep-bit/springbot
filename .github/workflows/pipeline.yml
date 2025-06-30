@@ -24,3 +24,12 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t springboot-app .
+
+      - name: Scan de l’image avec Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'springboot-app:latest'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: true
+
