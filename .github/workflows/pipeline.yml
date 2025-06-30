@@ -33,3 +33,9 @@ jobs:
           exit-code: '0'
           ignore-unfixed: true
 
+
+      - name: Push vers DockerHub
+        run: |
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USER }}" --password-stdin
+          docker tag springboot-app ${{ secrets.DOCKERHUB_USER }}/springboot-app:latest
+          docker push ${{ secrets.DOCKERHUB_USER }}/springboot-app:latest
