@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copier le fichier .jar généré par Maven dans le conteneur
-COPY target/docker-demo-0.0.1-SNAPSHOT.jar docker-demo.jar
+COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose le port 8080 (utilisé par Spring Boot par défaut)
 EXPOSE 8080
